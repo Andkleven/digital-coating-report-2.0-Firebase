@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import query from "graphql/query";
 import objectPath from "object-path";
-import itemsJson from "templates/createProject.json";
+import itemsJson from "templates/createProject.js";
 import mutations from "graphql/mutation";
 import Input from "components/input/Input";
 import SubmitButton from "components/button/SubmitButton";
@@ -106,11 +106,11 @@ export default ({ descriptionName = "description", ...props }) => {
       handleSubmit(
         props.setStage
           ? getStartStage(
-              props.geometry,
-              props.items
-                ? props.items.find(item => item.id === props.id)
-                : undefined
-            )
+            props.geometry,
+            props.items
+              ? props.items.find(item => item.id === props.id)
+              : undefined
+          )
           : undefined
       );
     }

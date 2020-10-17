@@ -18,7 +18,7 @@ import Canvas from "components/layout/Canvas";
 import DepthButton from "components/button/DepthButton";
 import ReadField from "components/form/components/fields/ReadField";
 import DepthButtonGroup from "components/button/DepthButtonGroup";
-import createProject from "templates/createProject.json";
+import createProject from "templates/createProject.js";
 import Loading from "components/Loading";
 const cloneDeep = require("clone-deep");
 
@@ -160,16 +160,15 @@ export default () => {
           display
           label={`Items in current description`}
           value={`${geometryData.items.length}`}
-          // noLine
+        // noLine
         />
         <ReadField
           display
           className={`${textColor}`}
           label={`Items in project`}
-          value={`${numberOfItems}/${projectsData.totalNumberOfItems}${
-            over ? ", too many items!" : ""
-          }`}
-          // noLine
+          value={`${numberOfItems}/${projectsData.totalNumberOfItems}${over ? ", too many items!" : ""
+            }`}
+        // noLine
         />
       </div>
     );
@@ -231,7 +230,7 @@ export default () => {
     projectExists &&
     !sent &&
     fixedData.projects[0].descriptions.length ===
-      projectsData.numberOfDescriptions &&
+    projectsData.numberOfDescriptions &&
     Number(numberOfItems) === Number(projectsData.totalNumberOfItems) &&
     itemsDone(data);
 
@@ -287,10 +286,8 @@ export default () => {
               className="text-center w-100 mt-3"
               onClick={() =>
                 history.push(
-                  `/lead-engineer/${fixedData.projects[0].id}/${
-                    geometryData.id
-                  }/${
-                    geometryData.items.find(item => item.unique === false).id
+                  `/lead-engineer/${fixedData.projects[0].id}/${geometryData.id
+                  }/${geometryData.items.find(item => item.unique === false).id
                   }/0/${geometryData.data.geometry}`
                 )
               }
@@ -376,8 +373,8 @@ export default () => {
               {sent
                 ? "Sent to production"
                 : sendable
-                ? "Send to production"
-                : "Not ready to send"}
+                  ? "Send to production"
+                  : "Not ready to send"}
             </DepthButton>
           </>
         )}

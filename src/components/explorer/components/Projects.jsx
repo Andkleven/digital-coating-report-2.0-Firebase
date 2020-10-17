@@ -8,7 +8,7 @@ import { useMutation } from "react-apollo";
 import mutations from "graphql/mutation";
 import query from "graphql/query";
 import { numberOfChildren } from "../functions/data.js";
-import batching from "templates/batching.json";
+import batching from "templates/batching";
 import { getUser } from "functions/user";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ReportButton } from "./Projects/ReportButton";
@@ -273,8 +273,7 @@ export default ({
                     className="d-inline text-secondary"
                     style={{ wordBreak: "break-word" }}
                   >
-                    {`${
-                      (project.leadEngineerDone &&
+                    {`${(project.leadEngineerDone &&
                         numberOfChildren(data, project.data.projectName) &&
                         ` ∙ ${project.descriptions.length}/${numberOfChildren(
                           data,
@@ -282,7 +281,7 @@ export default ({
                         )} Descriptions`) ||
                       ""
                       // " ∙ No descriptions"
-                    } `}
+                      } `}
                   </div>
                 </div>
                 // + `(${ countProjectItems(project) } items)`
@@ -415,21 +414,19 @@ export default ({
                         <div className="text-wrap">
                           {description.data.descriptionNameMaterialNo}
                           <div className="d-inline text-secondary">
-                            {` ∙ ${description.data.geometry}${
-                              (numberOfChildren(
-                                data,
-                                project.data.projectName,
-                                description.data.descriptionNameMaterialNo
-                              ) &&
-                                ` ∙ ${
-                                  description.items.length
+                            {` ∙ ${description.data.geometry}${(numberOfChildren(
+                              data,
+                              project.data.projectName,
+                              description.data.descriptionNameMaterialNo
+                            ) &&
+                                ` ∙ ${description.items.length
                                 }/${numberOfChildren(
                                   data,
                                   project.data.projectName,
                                   description.data.descriptionNameMaterialNo
                                 )} Items`) ||
                               " ∙ No items"
-                            }`}
+                              }`}
                           </div>
                         </div>
                       }
@@ -500,10 +497,10 @@ export default ({
                                               {item.itemId}
                                             </div>
                                           ) : (
-                                            <div className="text-secondary d-inline">
-                                              No Item ID (Index ID: {item.id})
-                                            </div>
-                                          )}
+                                              <div className="text-secondary d-inline">
+                                                No Item ID (Index ID: {item.id})
+                                              </div>
+                                            )}
                                         </div>
                                         <ProgressBar
                                           animated={progress(item) < 100}
@@ -587,8 +584,8 @@ export default ({
           );
         })
       ) : (
-        <NoItemsFound show={showNoItemsFound} />
-      )}
+          <NoItemsFound show={showNoItemsFound} />
+        )}
     </div>
   );
 };

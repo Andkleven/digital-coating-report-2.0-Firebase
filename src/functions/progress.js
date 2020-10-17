@@ -1,4 +1,4 @@
-import stages from "components/form/stage/stages.json";
+import stages from "components/form/stage/stages.js";
 import { camelCaseToNormal, reshapeStageSting } from "functions/general";
 
 export function progress(item) {

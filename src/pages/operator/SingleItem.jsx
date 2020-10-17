@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import query from "graphql/query";
-import operatorJson from "templates/operator.json";
-import leadEngineersJson from "templates/leadEngineer.json";
-import qualityControlJson from "templates/qualityControl.json";
+import operatorJson from "templates/operator.js";
+import leadEngineersJson from "templates/leadEngineer.js";
+import qualityControlJson from "templates/qualityControl.js";
 import Form from "components/form/Form";
 import history from "functions/history";
 import Paper from "components/layout/Paper";
@@ -17,7 +17,7 @@ import Canvas from "components/layout/Canvas";
 import { ItemContext } from "components/contexts/ItemContext";
 import { getAccess } from "functions/user.ts";
 import Overview from "components/layout/Overview";
-import stageAllJson from "components/form/stage/stages.json";
+import stageAllJson from "components/form/stage/stages.js";
 
 const stageJson = stageAllJson["all"];
 
@@ -107,7 +107,7 @@ export default pageInfo => {
     ? stageJson.indexOf(fixedData.items[0].stage)
     : 0;
 
-  const packer = productionLine ==="packer";
+  const packer = productionLine === "packer";
   const coatedItem = productionLine === "coatedItem";
 
   return (
@@ -141,7 +141,7 @@ export default pageInfo => {
           {...operator}
         />
       </Paper>
-      {finalInspection && coatedItem &&  (
+      {finalInspection && coatedItem && (
         <Paper className="mb-3">
           <Title big align="center">
             Quality Control

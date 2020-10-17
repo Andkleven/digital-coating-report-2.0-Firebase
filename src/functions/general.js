@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import objectPath from "object-path";
 import Math from "components/form/functions/math";
 import { ignoreRequiredField } from "config/const";
-import stages from "components/form/stage/stages.json";
+import stages from "components/form/stage/stages.js";
 import moment from "moment";
 
 export const stringToDictionary = data => {
@@ -80,7 +80,7 @@ export const findValue = (
   oldPath,
   repeatStepList = [],
   editRepeatStepList = {},
-  defaultValue=undefined
+  defaultValue = undefined
 ) => {
   let path = createPath(oldPath, repeatStepList, editRepeatStepList);
   if (emptyField(path)) {
@@ -229,13 +229,13 @@ export const getSubtext = (
   let minLocal = subtextMathMin
     ? Math[subtextMathMin](allData, repeatStepList)
     : min
-    ? min
-    : "";
+      ? min
+      : "";
   let maxLocal = subtextMathMax
     ? Math[subtextMathMax](allData, repeatStepList)
     : max
-    ? max
-    : "";
+      ? max
+      : "";
   let minString = minLocal === "" ? "" : `Min: ${minLocal}`;
   let maxString = maxLocal === "" ? "" : `Max: ${maxLocal}`;
 
@@ -346,7 +346,7 @@ export const calculateMaxMin = (
   if (["datetime-local", "date"].includes(type) && (min !== undefined || routeToSpecMin || routeToMin)) {
     if (routeToSpecMin || routeToMin) {
       newMin = moment(findValue(routeToMin ? documentData : specData, routeToSpecMin || routeToMin, repeatStepList, editRepeatStepListMax, new Date()))
-    } else { 
+    } else {
       newMin = moment()
     }
     if (min) {
@@ -370,11 +370,11 @@ export const calculateMaxMin = (
   } else {
     newMin = min;
   }
-  
-  if (["datetime-local", "date"].includes(type) && (max !== undefined  || routeToSpecMax || routeToMax)) {
+
+  if (["datetime-local", "date"].includes(type) && (max !== undefined || routeToSpecMax || routeToMax)) {
     if (routeToSpecMax || routeToMax) {
       newMax = moment(findValue(routeToMax ? documentData : specData, routeToSpecMax || routeToMax, repeatStepList, editRepeatStepListMax, new Date()))
-    } else { 
+    } else {
       newMax = moment()
     }
     if (max) {
@@ -609,8 +609,8 @@ export function getRepeatStepList(repeatStepList, index) {
   return repeatStepList
     ? [...repeatStepList, index]
     : repeatStepList === 0
-    ? [repeatStepList, index]
-    : [index];
+      ? [repeatStepList, index]
+      : [index];
 }
 
 export function isLastCharacterNumber(str) {

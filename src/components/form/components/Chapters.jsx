@@ -8,7 +8,7 @@ import {
 import Page from "components/form/components/Page";
 import findNextStage from "components/form/stage/findNextStage.ts";
 import objectPath from "object-path";
-import stagesJson from "components/form/stage/stages.json";
+import stagesJson from "components/form/stage/stages.js";
 import { ChapterContext, DocumentDataContext } from "components/form/Form";
 import SubmitButton from "components/button/SubmitButton";
 import AutoScroll from "components/AutoScroll";

@@ -6,7 +6,7 @@ import {
   camelCaseToNormal,
   allNull
 } from "functions/general";
-import operatorCoatedItemJson from "templates/operator.json";
+import operatorCoatedItemJson from "templates/operator";
 import Line from "components/design/Line";
 import findNextStage from "components/form/stage/findNextStage.ts";
 import CheckInput from "components/input/components/CheckInput";
@@ -22,8 +22,8 @@ export default props => {
           batchingData[
             Array.isArray(specValueList)
               ? specValueList[specValueList.length - 1].split(".")[
-                  specValueList[specValueList.length - 1].split(".").length - 1
-                ]
+              specValueList[specValueList.length - 1].split(".").length - 1
+              ]
               : specValueList.split(".")[specValueList.split(".").length - 1]
           ] = findValue(itemData, field.specValueList, props.repeatStepList);
         } else if (field.fieldName && !props.partialBatching) {
@@ -203,11 +203,11 @@ export default props => {
       {checkInputs(props.data, props.descriptionId).every(allNull) ? (
         <p>No items on this stage</p>
       ) : (
-        <>
-          <p>Pick what items to batch below:</p>
-          {checkInputs(props.data, props.descriptionId)}
-        </>
-      )}
+          <>
+            <p>Pick what items to batch below:</p>
+            {checkInputs(props.data, props.descriptionId)}
+          </>
+        )}
     </div>
   );
 };

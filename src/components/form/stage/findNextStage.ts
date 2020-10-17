@@ -1,4 +1,4 @@
-import stagesJson from "./stages.json";
+import stagesJson from "./stages.js";
 import {
   findValue,
   emptyField,
@@ -69,9 +69,8 @@ export default (specData: object, stage: string, stageType: string): object => {
         if (crossroads.split("Step")[1] !== undefined) {
           if (crossroads.split("Layer")[1] !== undefined) {
             return {
-              stage: `${crossroads.split("Step")[0]}Step${
-                step + 1
-              }Layer${layer}`,
+              stage: `${crossroads.split("Step")[0]}Step${step + 1
+                }Layer${layer}`,
               stageWithoutNumber: `${crossroads.split("Step")[0]}StepLayer`,
               number: [step, layer - 1]
             };
